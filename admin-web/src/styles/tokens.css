@@ -1,0 +1,85 @@
+:root {
+  /* 배경/표면 (크림 & 버터) */
+  --bg: #F4EFE3;
+  --surface: #FFFDF7;
+  --surface-alt: #FBF6EA;
+  --surface-card: #FFFFFF;
+  --border: #E7DFCE;
+  --border-soft: #EDE5D4;
+
+  /* 텍스트 */
+  --text: #2E2A24;
+  --text-muted: #8A8275;
+  --text-faint: #A39A8A;
+
+  /* 포인트 (노랑) */
+  --accent: #F5C542;
+  --accent-strong: #DDAF2B;
+  --accent-ink: #4A3603;
+  --accent-soft: #FFF8DE;
+
+  /* 특이사항 배지: 경고=산호 / 주의=자보라 / 정보=톤(청회) */
+  --warning-bg: #FDEEEA;
+  --warning-fg: #B8402A;
+  --warning-icon: #E8674F;
+
+  --caution-bg: #F1ECFA;
+  --caution-fg: #5E4590;
+  --caution-icon: #5E4590;
+
+  --info-bg: #EAF0F5;
+  --info-fg: #3E5872;
+  --info-icon: #5B7A99;
+
+  --success-bg: #EBF3ED;
+  --success-fg: #3E6B4F;
+  --success-icon: #5E9E72;
+
+  --danger: #D0503A;
+  --danger-bg: #FDEEEA;
+
+  /* 형태 */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 2px 10px rgba(46, 42, 36, 0.06);
+  --shadow-pop: 0 12px 32px rgba(46, 42, 36, 0.14);
+
+  --font-display: 'Jua', 'Pretendard', sans-serif;
+  --font-body: 'Pretendard', -apple-system, sans-serif;
+
+  --sidebar-width: 248px;
+  --bottom-tab-height: 64px;
+  --header-height: 64px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #211E19;
+    --surface: #2A2620;
+    --surface-alt: #322D25;
+    --surface-card: #2E2A24;
+    --border: #423C31;
+    --border-soft: #3A342B;
+    --text: #F4EFE3;
+    --text-muted: #B8AF9E;
+    --text-faint: #948A78;
+    --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #211E19;
+  --surface: #2A2620;
+  --surface-alt: #322D25;
+  --surface-card: #2E2A24;
+  --border: #423C31;
+  --border-soft: #3A342B;
+  --text: #F4EFE3;
+  --text-muted: #B8AF9E;
+  --text-faint: #948A78;
+}
