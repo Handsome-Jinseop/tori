@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<style>
+body { margin:0; background:#F4EFE3; }
+a { color:#B07E12; } a:hover { color:#8A6109; }
+</style>
+</helmet>
+<div style="font-family:Pretendard,sans-serif; background:#F4EFE3; color:#2E2A24; padding:48px; display:flex; flex-direction:column; gap:40px; box-sizing:border-box">
+
+  <div style="display:flex; flex-direction:column; gap:8px">
+    <div style="font-family:Jua,sans-serif; font-size:38px">관리자 웹앱 · 2차 시안</div>
+    <div style="font-size:16px; color:#8A8275; max-width:840px; text-wrap:pretty">A6 직원 관리 · A7 직원 이동 · A8 급여 설정 변경 · A9 신규 직원 요청 수락 · A11 얼굴 등록 승인 · A13 보너스·공제. 대화상자는 PC 기준 폭으로 따로 놓았고, 폰에서는 아래에서 올라오는 시트로 같은 내용을 씁니다.</div>
+  </div>
+
+  <div style="flex:none; display:flex; flex-direction:column; gap:10px">
+    <div style="display:flex; align-items:baseline; gap:8px"><span style="font-family:Jua,sans-serif; font-size:22px">A6</span><span style="font-size:15px; color:#8A8275">직원 관리 · PC 1440 · 상세 급여 설정 탭</span></div>
+    <div data-screen-label="A6 직원 관리 PC" style="flex:none; width:1440px; height:940px; border-radius:20px; overflow:hidden; display:flex; background:#FDF8EE; box-shadow:0 12px 32px rgba(46,42,36,0.12); border:1px solid #E7DFCE">
+      <div style="width:248px; flex:none; background:#FFFDF7; border-right:1px solid #EDE5D4; display:flex; flex-direction:column; padding:20px 14px; gap:18px; box-sizing:border-box">
+        <div style="display:flex; align-items:center; gap:9px; padding:0 8px">
+          <div style="width:30px; height:30px; border-radius:10px; background:#F5C542; display:flex; align-items:center; justify-content:center; font-family:Jua,sans-serif; font-size:16px; color:#4A3603">토</div>
+          <div style="font-family:Jua,sans-serif; font-size:19px">출퇴근 관리</div>
+        </div>
+        <div style="background:#FBF6EA; border:1px solid #EDE5D4; border-radius:14px; padding:12px; display:flex; flex-direction:column; gap:4px">
+          <div style="font-size:12px; color:#A39A8A">매장</div>
+          <div style="display:flex; align-items:center; justify-content:space-between; font-size:15px; font-weight:700">전체 3개 매장<span style="color:#A39A8A; font-size:12px">▾</span></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px">
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">대시보드</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">확인 필요<span style="margin-left:auto; background:#E8674F; color:#fff; font-size:12px; font-weight:700; border-radius:999px; padding:2px 9px">12</span></div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">근무</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">정산</div>
+          <div style="height:44px; border-radius:12px; background:#FDF1CE; color:#4A3603; font-size:15px; font-weight:700; display:flex; align-items:center; padding:0 14px">관리</div>
+          <div style="height:38px; border-radius:10px; color:#8A6109; font-size:14px; font-weight:600; display:flex; align-items:center; padding:0 14px; margin-left:12px">직원 관리</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">매장</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">얼굴 등록 승인</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">기기</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">설정</div>
+        </div>
+      </div>
+
+      <div style="flex:1; min-width:0; padding:26px 30px; display:flex; flex-direction:column; gap:16px; overflow:hidden">
+        <div style="display:flex; align-items:center; gap:14px">
+          <div style="font-family:Jua,sans-serif; font-size:30px">직원 관리</div>
+          <div style="margin-left:auto; height:44px; padding:0 20px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:15px; font-weight:700; display:flex; align-items:center">직원 추가</div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; background:#FFFFFF; border:1px solid #EDE5D4; border-radius:16px; padding:14px 16px">
+          <div style="height:36px; width:190px; border-radius:11px; border:1.5px solid #E7DFCE; background:#FBF6EA; display:flex; align-items:center; padding:0 13px; font-size:13px; color:#A39A8A">이름 검색</div>
+          <div style="width:1px; height:24px; background:#EDE5D4; margin:0 4px"></div>
+          <div style="height:34px; padding:0 14px; border-radius:999px; background:#2E2A24; color:#FDF8EE; font-size:13px; font-weight:600; display:flex; align-items:center">전체</div>
+          <div style="height:34px; padding:0 14px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">알바</div>
+          <div style="height:34px; padding:0 14px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">직원</div>
+          <div style="width:1px; height:24px; background:#EDE5D4; margin:0 4px"></div>
+          <div style="height:34px; padding:0 14px; border-radius:999px; background:#FDF1CE; border:1px solid #EBD79A; color:#8A6109; font-size:13px; font-weight:600; display:flex; align-items:center">재직</div>
+          <div style="height:34px; padding:0 14px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">퇴사</div>
+          <div style="margin-left:auto; height:34px; padding:0 14px; border-radius:11px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center; gap:6px">급여 관리 매장 전체 <span style="color:#A39A8A">▾</span></div>
+        </div>
+
+        <div style="flex:1; min-height:0; display:flex; gap:18px">
+          <div style="flex:1; min-width:0; background:#FFFFFF; border:1px solid #EDE5D4; border-radius:16px; overflow:hidden; display:flex; flex-direction:column">
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:12px 18px; background:#FBF6EA; font-size:13px; color:#8A8275; font-weight:600">
+              <div>이름</div><div>구분</div><div>급여 매장</div><div>근무 가능 매장</div><div style="text-align:right">시급 · 월급</div><div style="text-align:center">얼굴 등록</div><div style="text-align:right">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums; background:#FDF1CE">
+              <div style="font-weight:600">김서연</div>
+              <div><span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 7px">알바</span></div>
+              <div style="color:#6B6355">별내 본점</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">별내</span><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">직진</span></div>
+              <div style="text-align:right">11,000원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; background:#F5C542; color:#4A3603; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">별</span><span style="width:20px; height:20px; border-radius:7px; background:#F3EEFA; color:#5E4590; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">직</span></div>
+              <div style="text-align:right; font-size:12px; color:#3E6B4F; font-weight:600">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="font-weight:600">박도윤</div>
+              <div><span style="font-size:12px; color:#5C4405; background:#FDF1CE; border-radius:6px; padding:2px 7px">직원</span></div>
+              <div style="color:#6B6355">별내 본점</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">별내</span></div>
+              <div style="text-align:right">월 2,500,000원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; background:#F5C542; color:#4A3603; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">별</span></div>
+              <div style="text-align:right; font-size:12px; color:#3E6B4F; font-weight:600">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="font-weight:600">정민아</div>
+              <div><span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 7px">알바</span></div>
+              <div style="color:#6B6355">별내 본점</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">별내</span></div>
+              <div style="text-align:right">11,000원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; border:1.5px dashed #D6CCB5; color:#A39A8A; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; box-sizing:border-box">별</span></div>
+              <div style="text-align:right; font-size:12px; color:#3E6B4F; font-weight:600">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="font-weight:600">이하준</div>
+              <div><span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 7px">알바</span></div>
+              <div style="color:#6B6355">공릉 직영점</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">공릉</span><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">별내</span></div>
+              <div style="text-align:right">11,500원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; background:#F3EEFA; color:#5E4590; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">공</span><span style="width:20px; height:20px; border-radius:7px; background:#F5C542; color:#4A3603; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">별</span></div>
+              <div style="text-align:right; font-size:12px; color:#3E6B4F; font-weight:600">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="font-weight:600">최유진</div>
+              <div><span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 7px">알바</span></div>
+              <div style="color:#6B6355">공릉 직영점</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">공릉</span></div>
+              <div style="text-align:right">11,000원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; background:#F5C542; color:#4A3603; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">공</span></div>
+              <div style="text-align:right; font-size:12px; color:#3E6B4F; font-weight:600">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="font-weight:600">한지우</div>
+              <div><span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 7px">알바</span></div>
+              <div style="color:#6B6355">직진 닭강정</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">직진</span></div>
+              <div style="text-align:right">11,000원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; background:#F5C542; color:#4A3603; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">직</span></div>
+              <div style="text-align:right; font-size:12px; color:#3E6B4F; font-weight:600">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="font-weight:600">서다인</div>
+              <div><span style="font-size:12px; color:#5C4405; background:#FDF1CE; border-radius:6px; padding:2px 7px">직원</span></div>
+              <div style="color:#6B6355">직진 닭강정</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">직진</span></div>
+              <div style="text-align:right">월 2,300,000원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; border:1.5px dashed #D6CCB5; color:#A39A8A; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; box-sizing:border-box">직</span></div>
+              <div style="text-align:right; font-size:12px; color:#3E6B4F; font-weight:600">재직</div>
+            </div>
+            <div style="display:grid; grid-template-columns:118px 64px 118px minmax(0,1fr) 132px 118px 72px; padding:13px 18px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums; opacity:0.5">
+              <div style="font-weight:600">윤태호</div>
+              <div><span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 7px">알바</span></div>
+              <div style="color:#6B6355">별내 본점</div>
+              <div style="display:flex; gap:5px"><span style="font-size:12px; color:#6B6355; background:#F6F1E4; border-radius:6px; padding:3px 8px">별내</span></div>
+              <div style="text-align:right">11,000원</div>
+              <div style="display:flex; gap:6px; justify-content:center"><span style="width:20px; height:20px; border-radius:7px; background:#F1ECDF; color:#A39A8A; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">별</span></div>
+              <div style="text-align:right; font-size:12px; color:#8A8275; font-weight:600">퇴사</div>
+            </div>
+            <div style="margin-top:auto; padding:12px 18px; background:#FBF6EA; border-top:1px solid #EDE5D4; display:flex; align-items:center; gap:14px; font-size:13px; color:#8A8275">
+              <span>재직 7명 · 퇴사 1명</span>
+              <span style="margin-left:auto; display:flex; align-items:center; gap:10px">
+                <span style="display:flex; align-items:center; gap:5px"><span style="width:14px; height:14px; border-radius:5px; background:#F5C542"></span>등록됨</span>
+                <span style="display:flex; align-items:center; gap:5px"><span style="width:14px; height:14px; border-radius:5px; background:#F3EEFA; border:1px solid #D9CCF0; box-sizing:border-box"></span>승인 대기</span>
+                <span style="display:flex; align-items:center; gap:5px"><span style="width:14px; height:14px; border-radius:5px; border:1.5px dashed #D6CCB5; box-sizing:border-box"></span>없음</span>
+              </span>
+            </div>
+          </div>
+
+          <div style="width:440px; flex:none; background:#FFFFFF; border:1px solid #EDE5D4; border-radius:16px; display:flex; flex-direction:column; box-sizing:border-box; overflow:hidden">
+            <div style="padding:20px 20px 0; display:flex; flex-direction:column; gap:14px">
+              <div style="display:flex; align-items:center; gap:10px">
+                <div style="width:44px; height:44px; border-radius:14px; background:#FDF1CE; display:flex; align-items:center; justify-content:center; font-family:Jua,sans-serif; font-size:19px; color:#B07E12">김</div>
+                <div style="display:flex; flex-direction:column; gap:2px">
+                  <div style="font-size:19px; font-weight:700">김서연</div>
+                  <div style="font-size:13px; color:#8A8275">알바 · 별내 본점 · 2025년 3월 4일 입사</div>
+                </div>
+                <div style="margin-left:auto; font-size:18px; color:#A39A8A">×</div>
+              </div>
+              <div style="display:flex; gap:4px; border-bottom:1px solid #EDE5D4">
+                <div style="height:40px; padding:0 14px; font-size:14px; color:#8A8275; display:flex; align-items:center">기본 정보</div>
+                <div style="height:40px; padding:0 14px; font-size:14px; color:#4A3603; font-weight:700; display:flex; align-items:center; border-bottom:2.5px solid #F5C542; margin-bottom:-1px">급여 설정</div>
+                <div style="height:40px; padding:0 14px; font-size:14px; color:#8A8275; display:flex; align-items:center">얼굴 등록</div>
+                <div style="height:40px; padding:0 14px; font-size:14px; color:#8A8275; display:flex; align-items:center">이동 이력</div>
+              </div>
+            </div>
+            <div style="flex:1; min-height:0; padding:16px 20px 0; display:flex; flex-direction:column; gap:14px; overflow:hidden">
+              <div style="background:#FBF6EA; border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:12px">
+                <div style="display:flex; align-items:center; gap:8px">
+                  <div style="font-size:13px; color:#8A8275; font-weight:600">지금 적용 중</div>
+                  <div style="margin-left:auto; font-size:12px; color:#5E4590; background:#F3EEFA; border-radius:999px; padding:3px 10px; font-weight:600">10월 1일부터 변경 예정</div>
+                </div>
+                <div style="display:flex; align-items:flex-end; gap:6px"><span style="font-family:Jua,sans-serif; font-size:32px; line-height:1; font-variant-numeric:tabular-nums">11,000원</span><span style="font-size:14px; color:#8A8275; padding-bottom:4px">시급</span></div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; font-size:14px">
+                  <div style="display:flex; align-items:center; gap:7px"><span style="width:18px; height:18px; border-radius:6px; background:#F5C542; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:4px; border-left:2px solid #4A3603; border-bottom:2px solid #4A3603; transform:rotate(-45deg) translate(1px,-1px)"></span></span>주휴수당</div>
+                  <div style="display:flex; align-items:center; gap:7px; color:#A39A8A"><span style="width:18px; height:18px; border-radius:6px; border:1.5px solid #E2D9C4; box-sizing:border-box"></span>야간 가산</div>
+                  <div style="display:flex; align-items:center; gap:7px; color:#A39A8A"><span style="width:18px; height:18px; border-radius:6px; border:1.5px solid #E2D9C4; box-sizing:border-box"></span>휴일 가산</div>
+                  <div style="display:flex; align-items:center; gap:7px"><span style="width:18px; height:18px; border-radius:6px; background:#F5C542; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:4px; border-left:2px solid #4A3603; border-bottom:2px solid #4A3603; transform:rotate(-45deg) translate(1px,-1px)"></span></span>국민연금</div>
+                  <div style="display:flex; align-items:center; gap:7px"><span style="width:18px; height:18px; border-radius:6px; background:#F5C542; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:4px; border-left:2px solid #4A3603; border-bottom:2px solid #4A3603; transform:rotate(-45deg) translate(1px,-1px)"></span></span>건강보험</div>
+                  <div style="display:flex; align-items:center; gap:7px"><span style="width:18px; height:18px; border-radius:6px; background:#F5C542; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:4px; border-left:2px solid #4A3603; border-bottom:2px solid #4A3603; transform:rotate(-45deg) translate(1px,-1px)"></span></span>장기요양</div>
+                  <div style="display:flex; align-items:center; gap:7px"><span style="width:18px; height:18px; border-radius:6px; background:#F5C542; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:4px; border-left:2px solid #4A3603; border-bottom:2px solid #4A3603; transform:rotate(-45deg) translate(1px,-1px)"></span></span>고용보험</div>
+                </div>
+              </div>
+              <div style="height:46px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center">급여 설정 변경</div>
+              <div style="display:flex; flex-direction:column; gap:8px; min-height:0">
+                <div style="font-size:13px; color:#8A8275; font-weight:600">변경 이력</div>
+                <div style="border:1px solid #F1EADA; border-radius:14px; overflow:hidden">
+                  <div style="display:grid; grid-template-columns:96px 92px minmax(0,1fr); padding:10px 14px; background:#FBF6EA; font-size:12px; color:#8A8275; font-weight:600"><div>적용일</div><div style="text-align:right">시급</div><div style="padding-left:12px">설정</div></div>
+                  <div style="display:grid; grid-template-columns:96px 92px minmax(0,1fr); padding:11px 14px; border-top:1px solid #F3EDE0; font-size:13px; font-variant-numeric:tabular-nums"><div>10월 1일</div><div style="text-align:right; color:#5E4590; font-weight:600">11,500원</div><div style="padding-left:12px; color:#6B6355">예정</div></div>
+                  <div style="display:grid; grid-template-columns:96px 92px minmax(0,1fr); padding:11px 14px; border-top:1px solid #F3EDE0; font-size:13px; font-variant-numeric:tabular-nums"><div>7월 1일</div><div style="text-align:right">11,000원</div><div style="padding-left:12px; color:#6B6355">주휴 + 4대보험</div></div>
+                  <div style="display:grid; grid-template-columns:96px 92px minmax(0,1fr); padding:11px 14px; border-top:1px solid #F3EDE0; font-size:13px; font-variant-numeric:tabular-nums"><div>3월 4일</div><div style="text-align:right">10,300원</div><div style="padding-left:12px; color:#6B6355">주휴</div></div>
+                </div>
+              </div>
+            </div>
+            <div style="padding:16px 20px; border-top:1px solid #EDE5D4; display:flex; gap:10px">
+              <div style="flex:1; height:48px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:16px; font-weight:700; display:flex; align-items:center; justify-content:center">저장</div>
+              <div style="height:48px; padding:0 20px; border-radius:13px; background:#FDEEEA; color:#B8402A; font-size:15px; font-weight:600; display:flex; align-items:center">퇴사 처리</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none; display:flex; flex-direction:column; gap:10px">
+    <div style="display:flex; align-items:baseline; gap:8px"><span style="font-family:Jua,sans-serif; font-size:22px">A11</span><span style="font-size:15px; color:#8A8275">얼굴 등록 승인 · PC 1440</span></div>
+    <div data-screen-label="A11 얼굴 등록 승인 PC" style="flex:none; width:1440px; height:760px; border-radius:20px; overflow:hidden; display:flex; background:#FDF8EE; box-shadow:0 12px 32px rgba(46,42,36,0.12); border:1px solid #E7DFCE">
+      <div style="width:248px; flex:none; background:#FFFDF7; border-right:1px solid #EDE5D4; display:flex; flex-direction:column; padding:20px 14px; gap:18px; box-sizing:border-box">
+        <div style="display:flex; align-items:center; gap:9px; padding:0 8px">
+          <div style="width:30px; height:30px; border-radius:10px; background:#F5C542; display:flex; align-items:center; justify-content:center; font-family:Jua,sans-serif; font-size:16px; color:#4A3603">토</div>
+          <div style="font-family:Jua,sans-serif; font-size:19px">출퇴근 관리</div>
+        </div>
+        <div style="background:#FBF6EA; border:1px solid #EDE5D4; border-radius:14px; padding:12px; display:flex; flex-direction:column; gap:4px">
+          <div style="font-size:12px; color:#A39A8A">매장</div>
+          <div style="display:flex; align-items:center; justify-content:space-between; font-size:15px; font-weight:700">전체 3개 매장<span style="color:#A39A8A; font-size:12px">▾</span></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px">
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">대시보드</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">확인 필요<span style="margin-left:auto; background:#E8674F; color:#fff; font-size:12px; font-weight:700; border-radius:999px; padding:2px 9px">12</span></div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">근무</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">정산</div>
+          <div style="height:44px; border-radius:12px; background:#FDF1CE; color:#4A3603; font-size:15px; font-weight:700; display:flex; align-items:center; padding:0 14px">관리</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">직원 관리</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">매장</div>
+          <div style="height:38px; border-radius:10px; color:#8A6109; font-size:14px; font-weight:600; display:flex; align-items:center; padding:0 14px; margin-left:12px">얼굴 등록 승인</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">기기</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">설정</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:0; padding:26px 30px; display:flex; flex-direction:column; gap:16px; overflow:hidden">
+        <div style="font-family:Jua,sans-serif; font-size:30px">얼굴 등록 승인</div>
+        <div style="display:flex; align-items:center; gap:9px; background:#EFF2F6; border-radius:12px; padding:11px 15px; font-size:14px; color:#455568">
+          <span style="width:18px; height:18px; border-radius:50%; border:2px solid #6B7A8F; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; box-sizing:border-box; flex:none">i</span>
+          목록에 이름이 없어서 온 신규 직원 요청은 대시보드의 신규 직원 요청 카드에서 처리해요.
+        </div>
+        <div style="display:flex; gap:4px; border-bottom:1px solid #EDE5D4">
+          <div style="height:44px; padding:0 16px; font-size:15px; color:#4A3603; font-weight:700; display:flex; align-items:center; gap:7px; border-bottom:2.5px solid #F5C542; margin-bottom:-1px">승인 대기<span style="background:#FDF1CE; color:#8A6109; font-size:12px; font-weight:700; border-radius:999px; padding:2px 8px">3</span></div>
+          <div style="height:44px; padding:0 16px; font-size:15px; color:#8A8275; display:flex; align-items:center">처리 완료</div>
+        </div>
+        <div style="flex:1; min-height:0; background:#FFFFFF; border:1px solid #EDE5D4; border-radius:16px; overflow:hidden; display:flex; flex-direction:column">
+          <div style="display:grid; grid-template-columns:150px 170px 150px 110px 150px minmax(0,1fr); padding:12px 20px; background:#FBF6EA; font-size:13px; color:#8A8275; font-weight:600">
+            <div>직원</div><div>매장 (기기)</div><div>요청 시각</div><div>종류</div><div>동의 시각</div><div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:150px 170px 150px 110px 150px minmax(0,1fr); padding:15px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+            <div style="font-weight:600">김서연</div>
+            <div style="color:#6B6355">별내 본점 · 폰1</div>
+            <div>오늘 09:12</div>
+            <div><span style="font-size:12px; color:#3E6B4F; background:#EBF3ED; border-radius:6px; padding:3px 9px; font-weight:600">신규</span></div>
+            <div style="color:#6B6355">오늘 09:11</div>
+            <div style="display:flex; gap:8px; justify-content:flex-end">
+              <div style="height:38px; padding:0 18px; border-radius:11px; background:#F5C542; color:#4A3603; font-size:14px; font-weight:700; display:flex; align-items:center">승인</div>
+              <div style="height:38px; padding:0 15px; border-radius:11px; color:#B8402A; font-size:14px; font-weight:600; display:flex; align-items:center">거절</div>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:150px 170px 150px 110px 150px minmax(0,1fr); padding:15px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums; background:#FFFCF4">
+            <div style="font-weight:600">이하준</div>
+            <div style="color:#6B6355">공릉 직영점 · 폰1</div>
+            <div>오늘 08:30</div>
+            <div><span style="font-size:12px; color:#5E4590; background:#F3EEFA; border-radius:6px; padding:3px 9px; font-weight:600">재등록</span></div>
+            <div style="color:#6B6355">오늘 08:29</div>
+            <div style="display:flex; align-items:center; gap:12px; justify-content:flex-end">
+              <span style="font-size:13px; color:#5E4590">승인하면 새 얼굴로 교체돼요</span>
+              <div style="height:38px; padding:0 18px; border-radius:11px; background:#F5C542; color:#4A3603; font-size:14px; font-weight:700; display:flex; align-items:center">승인</div>
+              <div style="height:38px; padding:0 15px; border-radius:11px; color:#B8402A; font-size:14px; font-weight:600; display:flex; align-items:center">거절</div>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:150px 170px 150px 110px 150px minmax(0,1fr); padding:15px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+            <div style="font-weight:600">한지우</div>
+            <div style="color:#6B6355">직진 닭강정 · 폰1</div>
+            <div>어제 21:04</div>
+            <div><span style="font-size:12px; color:#3E6B4F; background:#EBF3ED; border-radius:6px; padding:3px 9px; font-weight:600">신규</span></div>
+            <div style="color:#6B6355">어제 21:03</div>
+            <div style="display:flex; gap:8px; justify-content:flex-end">
+              <div style="height:38px; padding:0 18px; border-radius:11px; background:#F5C542; color:#4A3603; font-size:14px; font-weight:700; display:flex; align-items:center">승인</div>
+              <div style="height:38px; padding:0 15px; border-radius:11px; color:#B8402A; font-size:14px; font-weight:600; display:flex; align-items:center">거절</div>
+            </div>
+          </div>
+        </div>
+        <div style="align-self:flex-start; display:flex; align-items:center; gap:14px; background:#2E2A24; color:#FDF8EE; border-radius:14px; padding:13px 18px; font-size:15px">
+          승인했어요
+          <span style="color:#F5C542; font-weight:700; text-decoration:underline; text-underline-offset:3px">되돌리기</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none; display:flex; flex-direction:column; gap:10px">
+    <div style="display:flex; align-items:baseline; gap:8px"><span style="font-family:Jua,sans-serif; font-size:22px">A13</span><span style="font-size:15px; color:#8A8275">보너스·공제 · PC 1440 · 추가 패널</span></div>
+    <div data-screen-label="A13 보너스 공제 PC" style="flex:none; width:1440px; height:820px; border-radius:20px; overflow:hidden; display:flex; background:#FDF8EE; box-shadow:0 12px 32px rgba(46,42,36,0.12); border:1px solid #E7DFCE">
+      <div style="width:248px; flex:none; background:#FFFDF7; border-right:1px solid #EDE5D4; display:flex; flex-direction:column; padding:20px 14px; gap:18px; box-sizing:border-box">
+        <div style="display:flex; align-items:center; gap:9px; padding:0 8px">
+          <div style="width:30px; height:30px; border-radius:10px; background:#F5C542; display:flex; align-items:center; justify-content:center; font-family:Jua,sans-serif; font-size:16px; color:#4A3603">토</div>
+          <div style="font-family:Jua,sans-serif; font-size:19px">출퇴근 관리</div>
+        </div>
+        <div style="background:#FBF6EA; border:1px solid #EDE5D4; border-radius:14px; padding:12px; display:flex; flex-direction:column; gap:4px">
+          <div style="font-size:12px; color:#A39A8A">매장</div>
+          <div style="display:flex; align-items:center; justify-content:space-between; font-size:15px; font-weight:700">전체 3개 매장<span style="color:#A39A8A; font-size:12px">▾</span></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px">
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">대시보드</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">확인 필요<span style="margin-left:auto; background:#E8674F; color:#fff; font-size:12px; font-weight:700; border-radius:999px; padding:2px 9px">12</span></div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">근무</div>
+          <div style="height:44px; border-radius:12px; background:#FDF1CE; color:#4A3603; font-size:15px; font-weight:700; display:flex; align-items:center; padding:0 14px">정산</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">정산</div>
+          <div style="height:38px; border-radius:10px; color:#8A8275; font-size:14px; display:flex; align-items:center; padding:0 14px; margin-left:12px">매장별 리포트</div>
+          <div style="height:38px; border-radius:10px; color:#8A6109; font-size:14px; font-weight:600; display:flex; align-items:center; padding:0 14px; margin-left:12px">보너스·공제</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">관리</div>
+          <div style="height:44px; border-radius:12px; color:#6B6355; font-size:15px; display:flex; align-items:center; padding:0 14px">설정</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:0; padding:26px 30px; display:flex; flex-direction:column; gap:16px; overflow:hidden">
+        <div style="display:flex; align-items:center; gap:14px">
+          <div style="font-family:Jua,sans-serif; font-size:30px">보너스·공제</div>
+          <div style="margin-left:auto; height:44px; padding:0 20px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:15px; font-weight:700; display:flex; align-items:center">항목 추가</div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; background:#FFFFFF; border:1px solid #EDE5D4; border-radius:16px; padding:14px 16px">
+          <div style="height:34px; padding:0 14px; border-radius:11px; background:#FBF6EA; border:1px solid #E7DFCE; color:#4A4238; font-size:13px; font-weight:600; display:flex; align-items:center; gap:6px; font-variant-numeric:tabular-nums">9월 1일 – 9월 30일 <span style="color:#A39A8A">▾</span></div>
+          <div style="height:34px; padding:0 14px; border-radius:999px; background:#2E2A24; color:#FDF8EE; font-size:13px; font-weight:600; display:flex; align-items:center">전체 매장</div>
+          <div style="height:34px; width:170px; border-radius:11px; border:1.5px solid #E7DFCE; background:#FBF6EA; display:flex; align-items:center; padding:0 13px; font-size:13px; color:#A39A8A">직원 검색</div>
+          <div style="margin-left:auto; display:flex; gap:7px">
+            <div style="height:34px; padding:0 14px; border-radius:999px; background:#2E2A24; color:#FDF8EE; font-size:13px; font-weight:600; display:flex; align-items:center">전체</div>
+            <div style="height:34px; padding:0 14px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">보너스</div>
+            <div style="height:34px; padding:0 14px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">공제</div>
+          </div>
+        </div>
+
+        <div style="flex:1; min-height:0; display:flex; gap:18px">
+          <div style="flex:1; min-width:0; background:#FFFFFF; border:1px solid #EDE5D4; border-radius:16px; overflow:hidden; display:flex; flex-direction:column">
+            <div style="display:grid; grid-template-columns:150px 148px 88px 124px 168px minmax(0,1fr); padding:12px 20px; background:#FBF6EA; font-size:13px; color:#8A8275; font-weight:600">
+              <div>반영 기간</div><div>직원</div><div>종류</div><div style="text-align:right">금액</div><div style="padding-left:16px">목적</div><div style="padding-left:16px">메모</div>
+            </div>
+            <div style="display:grid; grid-template-columns:150px 148px 88px 124px 168px minmax(0,1fr); padding:14px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="color:#6B6355">9월</div>
+              <div>박도윤 <span style="font-size:12px; color:#5C4405; background:#FDF1CE; border-radius:6px; padding:2px 6px">직원</span></div>
+              <div><span style="font-size:12px; color:#8A6109; background:#FDF1CE; border-radius:6px; padding:3px 9px; font-weight:600">보너스</span></div>
+              <div style="text-align:right; font-weight:700; color:#3E6B4F">+100,000원</div>
+              <div style="padding-left:16px">추석 수당</div>
+              <div style="padding-left:16px; color:#8A8275">—</div>
+            </div>
+            <div style="display:grid; grid-template-columns:150px 148px 88px 124px 168px minmax(0,1fr); padding:14px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="color:#6B6355">9월</div>
+              <div>김서연 <span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 6px">알바</span></div>
+              <div><span style="font-size:12px; color:#A8381F; background:#FDEEEA; border-radius:6px; padding:3px 9px; font-weight:600">공제</span></div>
+              <div style="text-align:right; font-weight:700; color:#B8402A">−30,000원</div>
+              <div style="padding-left:16px">결근 공제</div>
+              <div style="padding-left:16px; color:#8A8275">9월 15일 무단결근</div>
+            </div>
+            <div style="display:grid; grid-template-columns:150px 148px 88px 124px 168px minmax(0,1fr); padding:14px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="color:#6B6355">9월</div>
+              <div>최유진 <span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 6px">알바</span></div>
+              <div><span style="font-size:12px; color:#A8381F; background:#FDEEEA; border-radius:6px; padding:3px 9px; font-weight:600">공제</span></div>
+              <div style="text-align:right; font-weight:700; color:#B8402A">−20,000원</div>
+              <div style="padding-left:16px">지각 공제</div>
+              <div style="padding-left:16px; color:#8A8275">—</div>
+            </div>
+            <div style="display:grid; grid-template-columns:150px 148px 88px 124px 168px minmax(0,1fr); padding:14px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums">
+              <div style="color:#6B6355">9월</div>
+              <div>서다인 <span style="font-size:12px; color:#5C4405; background:#FDF1CE; border-radius:6px; padding:2px 6px">직원</span></div>
+              <div><span style="font-size:12px; color:#8A6109; background:#FDF1CE; border-radius:6px; padding:3px 9px; font-weight:600">보너스</span></div>
+              <div style="text-align:right; font-weight:700; color:#3E6B4F">+50,000원</div>
+              <div style="padding-left:16px">우수 사원</div>
+              <div style="padding-left:16px; color:#8A8275">—</div>
+            </div>
+            <div style="display:grid; grid-template-columns:150px 148px 88px 124px 168px minmax(0,1fr); padding:14px 20px; border-top:1px solid #F3EDE0; font-size:14px; align-items:center; font-variant-numeric:tabular-nums; opacity:0.55">
+              <div style="color:#6B6355">8월 <span style="font-size:11px; color:#5E4590; background:#F3EEFA; border-radius:5px; padding:2px 6px">확정</span></div>
+              <div>한지우 <span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 6px">알바</span></div>
+              <div><span style="font-size:12px; color:#8A6109; background:#FDF1CE; border-radius:6px; padding:3px 9px; font-weight:600">보너스</span></div>
+              <div style="text-align:right; font-weight:700">+80,000원</div>
+              <div style="padding-left:16px">여름 수당</div>
+              <div style="padding-left:16px; color:#8A8275">—</div>
+            </div>
+            <div style="margin-top:auto; display:flex; align-items:center; gap:24px; padding:15px 20px; background:#FBF6EA; border-top:1px solid #EDE5D4; font-size:14px; font-variant-numeric:tabular-nums">
+              <span style="color:#6B6355; font-weight:600">9월 합계</span>
+              <span style="margin-left:auto; color:#3E6B4F; font-weight:700">보너스 +150,000원</span>
+              <span style="color:#B8402A; font-weight:700">공제 −50,000원</span>
+            </div>
+          </div>
+
+          <div style="width:400px; flex:none; background:#FFFFFF; border:1px solid #EDE5D4; border-radius:16px; padding:20px; display:flex; flex-direction:column; gap:14px; box-sizing:border-box">
+            <div style="display:flex; align-items:center"><div style="font-size:18px; font-weight:700">항목 추가</div><div style="margin-left:auto; font-size:18px; color:#A39A8A">×</div></div>
+            <div style="display:flex; flex-direction:column; gap:6px">
+              <div style="font-size:13px; color:#8A8275">직원</div>
+              <div style="height:46px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:15px">정민아 <span style="font-size:12px; color:#7B7365; background:#F1ECDF; border-radius:6px; padding:2px 7px; margin-left:7px">알바</span><span style="margin-left:auto; color:#A39A8A; font-size:12px">▾</span></div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px">
+              <div style="font-size:13px; color:#8A8275">종류</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+                <div style="height:60px; border-radius:14px; border:2px solid #F5C542; background:#FFFCF0; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:700; color:#4A3603">보너스</div>
+                <div style="height:60px; border-radius:14px; border:1.5px solid #E7DFCE; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:600; color:#8A8275">공제</div>
+              </div>
+              <div style="font-size:13px; color:#8A8275">급여에 더해요</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px">
+              <div style="font-size:13px; color:#8A8275">금액</div>
+              <div style="height:52px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:19px; font-weight:600; font-variant-numeric:tabular-nums">100,000<span style="margin-left:auto; font-size:15px; color:#8A8275; font-weight:500">원</span></div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px">
+              <div style="font-size:13px; color:#8A8275">목적</div>
+              <div style="height:46px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:15px; color:#A39A8A">예: 명절 수당</div>
+              <div style="display:flex; gap:7px; flex-wrap:wrap">
+                <div style="height:32px; padding:0 13px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">명절 수당</div>
+                <div style="height:32px; padding:0 13px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">우수 사원</div>
+                <div style="height:32px; padding:0 13px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">결근 공제</div>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px">
+              <div style="font-size:13px; color:#8A8275">반영할 정산 기간</div>
+              <div style="height:46px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:15px; font-variant-numeric:tabular-nums">9월 1일 – 9월 30일<span style="margin-left:auto; color:#A39A8A; font-size:12px">▾</span></div>
+            </div>
+            <div style="margin-top:auto; display:flex; gap:10px">
+              <div style="flex:1; height:48px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:16px; font-weight:700; display:flex; align-items:center; justify-content:center">추가</div>
+              <div style="flex:1; height:48px; border-radius:13px; background:#FFFFFF; border:1.5px solid #E2D9C4; color:#4A4238; font-size:16px; font-weight:600; display:flex; align-items:center; justify-content:center">취소</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none; display:flex; flex-direction:column; gap:10px">
+    <div style="display:flex; align-items:baseline; gap:8px"><span style="font-family:Jua,sans-serif; font-size:22px">A7 · A8 · A9</span><span style="font-size:15px; color:#8A8275">대화상자 · PC 기준 폭</span></div>
+    <div style="display:flex; gap:26px; flex-wrap:wrap; align-items:flex-start">
+
+      <div data-screen-label="A7 직원 이동" style="flex:none; width:520px; background:#FFFDF7; border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:18px; box-sizing:border-box; box-shadow:0 16px 40px rgba(46,42,36,0.18); border:1px solid #E7DFCE">
+        <div style="display:flex; flex-direction:column; gap:4px">
+          <div style="font-family:Jua,sans-serif; font-size:26px">홍길동 직원 이동</div>
+          <div style="font-size:15px; color:#8A8275">현재 급여 관리 매장: 토리코코로 별내 본점</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px">
+          <div style="font-size:13px; color:#8A8275">새 급여 관리 매장</div>
+          <div style="height:50px; border-radius:13px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 15px; font-size:16px">토리코코로 공릉 직영점<span style="margin-left:auto; color:#A39A8A; font-size:12px">▾</span></div>
+        </div>
+        <div style="background:#FBF6EA; border-radius:13px; padding:14px 16px; display:flex; flex-direction:column; gap:3px">
+          <div style="font-size:13px; color:#8A8275">적용일</div>
+          <div style="font-size:16px; font-weight:600">10월 1일부터 적용돼요</div>
+          <div style="font-size:14px; color:#8A8275">이동은 다음 달부터 적용됩니다.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px">
+          <div style="font-size:13px; color:#8A8275">사유</div>
+          <div style="height:50px; border-radius:13px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 15px; font-size:16px; color:#4A4238">공릉점 주방 인력 보강</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px">
+          <div style="font-size:13px; color:#8A8275">이전 매장 처리</div>
+          <div style="display:flex; align-items:center; gap:11px; height:52px; border-radius:13px; border:2px solid #F5C542; background:#FFFCF0; padding:0 15px">
+            <span style="width:20px; height:20px; border-radius:50%; border:6px solid #F5C542; background:#FFFDF7; box-sizing:border-box"></span>
+            <span style="font-size:16px; font-weight:600">계속 근무 가능 (겸직)</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:11px; height:52px; border-radius:13px; border:1.5px solid #E7DFCE; padding:0 15px">
+            <span style="width:20px; height:20px; border-radius:50%; border:1.5px solid #D6CCB5; box-sizing:border-box"></span>
+            <span style="font-size:16px; color:#6B6355">근무 가능에서 제거</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:9px; background:#EFF2F6; border-radius:12px; padding:13px 15px; font-size:14px; color:#455568; line-height:1.5">
+          <span style="width:18px; height:18px; border-radius:50%; border:2px solid #6B7A8F; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; box-sizing:border-box; flex:none; margin-top:1px">i</span>
+          <span style="text-wrap:pretty">새 매장은 지금부터 근무 가능 매장에 추가돼요. 급여는 적용일부터 새 매장으로 넘어가요.</span>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:flex-end">
+          <div style="height:48px; padding:0 22px; border-radius:13px; background:#FFFFFF; border:1.5px solid #E2D9C4; color:#4A4238; font-size:16px; font-weight:600; display:flex; align-items:center">취소</div>
+          <div style="height:48px; padding:0 26px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:16px; font-weight:700; display:flex; align-items:center">이동 예약</div>
+        </div>
+      </div>
+
+      <div data-screen-label="A8 급여 설정 변경" style="flex:none; width:560px; background:#FFFDF7; border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:16px; box-sizing:border-box; box-shadow:0 16px 40px rgba(46,42,36,0.18); border:1px solid #E7DFCE">
+        <div style="display:flex; flex-direction:column; gap:4px">
+          <div style="font-family:Jua,sans-serif; font-size:26px">급여 설정 변경</div>
+          <div style="font-size:15px; color:#8A8275">김서연 · 알바</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:7px">
+          <div style="font-size:13px; color:#8A8275">시급</div>
+          <div style="height:56px; border-radius:13px; border:1.5px solid #E8674F; background:#FFF8F6; display:flex; align-items:center; padding:0 15px; font-size:22px; font-weight:700; font-variant-numeric:tabular-nums">9,800<span style="margin-left:auto; font-size:16px; color:#8A8275; font-weight:500">원</span></div>
+          <div style="display:flex; align-items:center; gap:7px; font-size:14px; color:#B8402A; font-weight:600">
+            <span style="width:18px; height:18px; border-radius:50%; background:#E8674F; color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none">!</span>
+            최저시급(10,320원)보다 낮아요
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; background:#FDEEEA; border-radius:12px; padding:12px 14px">
+            <span style="width:20px; height:20px; border-radius:7px; border:1.5px solid #E0A99C; background:#FFFFFF; box-sizing:border-box; flex:none"></span>
+            <span style="font-size:14px; color:#8C3421; font-weight:600">최저시급보다 낮은 금액으로 저장할게요</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <div style="font-size:13px; color:#8A8275">수당과 4대보험</div>
+          <div style="border:1px solid #EDE5D4; border-radius:14px; overflow:hidden">
+            <div style="display:flex; align-items:center; padding:12px 15px; font-size:15px"><span>주휴수당</span><span style="margin-left:auto; width:44px; height:25px; border-radius:999px; background:#F5C542; display:flex; align-items:center; justify-content:flex-end; padding:2px; box-sizing:border-box"><span style="width:21px; height:21px; border-radius:50%; background:#FFFDF7"></span></span></div>
+            <div style="display:flex; align-items:center; padding:12px 15px; font-size:15px; border-top:1px solid #F3EDE0"><span style="color:#6B6355">야간 가산</span><span style="margin-left:auto; width:44px; height:25px; border-radius:999px; background:#E7DFCE; display:flex; align-items:center; padding:2px; box-sizing:border-box"><span style="width:21px; height:21px; border-radius:50%; background:#FFFDF7"></span></span></div>
+            <div style="display:flex; align-items:center; padding:12px 15px; font-size:15px; border-top:1px solid #F3EDE0"><span style="color:#6B6355">휴일 가산</span><span style="margin-left:auto; width:44px; height:25px; border-radius:999px; background:#E7DFCE; display:flex; align-items:center; padding:2px; box-sizing:border-box"><span style="width:21px; height:21px; border-radius:50%; background:#FFFDF7"></span></span></div>
+            <div style="display:flex; align-items:center; padding:12px 15px; font-size:15px; border-top:1px solid #F3EDE0"><span>국민연금</span><span style="margin-left:auto; width:44px; height:25px; border-radius:999px; background:#F5C542; display:flex; align-items:center; justify-content:flex-end; padding:2px; box-sizing:border-box"><span style="width:21px; height:21px; border-radius:50%; background:#FFFDF7"></span></span></div>
+            <div style="display:flex; align-items:center; padding:12px 15px; font-size:15px; border-top:1px solid #F3EDE0"><span>건강보험</span><span style="margin-left:auto; width:44px; height:25px; border-radius:999px; background:#F5C542; display:flex; align-items:center; justify-content:flex-end; padding:2px; box-sizing:border-box"><span style="width:21px; height:21px; border-radius:50%; background:#FFFDF7"></span></span></div>
+            <div style="display:flex; align-items:center; padding:12px 15px; font-size:15px; border-top:1px solid #F3EDE0"><span>장기요양</span><span style="margin-left:auto; width:44px; height:25px; border-radius:999px; background:#F5C542; display:flex; align-items:center; justify-content:flex-end; padding:2px; box-sizing:border-box"><span style="width:21px; height:21px; border-radius:50%; background:#FFFDF7"></span></span></div>
+            <div style="display:flex; align-items:center; padding:12px 15px; font-size:15px; border-top:1px solid #F3EDE0"><span>고용보험</span><span style="margin-left:auto; width:44px; height:25px; border-radius:999px; background:#F5C542; display:flex; align-items:center; justify-content:flex-end; padding:2px; box-sizing:border-box"><span style="width:21px; height:21px; border-radius:50%; background:#FFFDF7"></span></span></div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px">
+          <div style="font-size:13px; color:#8A8275">적용 시점</div>
+          <div style="display:flex; gap:10px">
+            <div style="flex:1; border:2px solid #F5C542; background:#FFFCF0; border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:4px">
+              <div style="font-size:15px; font-weight:700">이번 정산 기간부터</div>
+              <div style="font-size:13px; color:#8A8275">9월 1일부터 소급 적용</div>
+            </div>
+            <div style="flex:1; border:1.5px solid #E7DFCE; border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:4px">
+              <div style="font-size:15px; font-weight:600; color:#6B6355">다음 정산 기간부터</div>
+              <div style="font-size:13px; color:#A39A8A">10월 1일부터</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#FBF6EA; border-radius:13px; padding:14px 16px; font-size:15px; color:#4A4238; font-variant-numeric:tabular-nums; text-wrap:pretty">이번 정산 금액이 1,148,200원에서 1,032,800원으로 바뀌어요 <strong style="color:#B8402A">(−115,400원)</strong></div>
+        <div style="display:flex; gap:10px; justify-content:flex-end">
+          <div style="height:48px; padding:0 22px; border-radius:13px; background:#FFFFFF; border:1.5px solid #E2D9C4; color:#4A4238; font-size:16px; font-weight:600; display:flex; align-items:center">취소</div>
+          <div style="height:48px; padding:0 30px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:16px; font-weight:700; display:flex; align-items:center">저장</div>
+        </div>
+      </div>
+
+      <div data-screen-label="A9 신규 직원 요청 수락" style="flex:none; width:560px; background:#FFFDF7; border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:16px; box-sizing:border-box; box-shadow:0 16px 40px rgba(46,42,36,0.18); border:1px solid #E7DFCE">
+        <div style="font-family:Jua,sans-serif; font-size:26px">신규 직원 요청</div>
+        <div style="background:#FBF6EA; border-radius:14px; padding:16px; display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; font-size:14px">
+          <div style="display:flex; gap:10px"><span style="color:#8A8275; min-width:62px">입력 이름</span><span style="font-weight:700">윤태호</span></div>
+          <div style="display:flex; gap:10px"><span style="color:#8A8275; min-width:62px">요청 매장</span><span>별내 본점</span></div>
+          <div style="display:flex; gap:10px"><span style="color:#8A8275; min-width:62px">요청 시각</span><span style="font-variant-numeric:tabular-nums">어제 17:55</span></div>
+          <div style="display:flex; gap:10px"><span style="color:#8A8275; min-width:62px">쌓인 기록</span><span>3건 · 첫 출근 어제 17:55</span></div>
+        </div>
+        <div style="display:flex; gap:4px; border-bottom:1px solid #EDE5D4">
+          <div style="height:42px; padding:0 15px; font-size:15px; color:#4A3603; font-weight:700; display:flex; align-items:center; border-bottom:2.5px solid #F5C542; margin-bottom:-1px">수락</div>
+          <div style="height:42px; padding:0 15px; font-size:15px; color:#8A8275; display:flex; align-items:center">기존 직원에 연결</div>
+          <div style="height:42px; padding:0 15px; font-size:15px; color:#8A8275; display:flex; align-items:center">거절</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="font-size:13px; color:#8A8275">이름</div>
+            <div style="height:48px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:16px; font-weight:600">윤태호</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="font-size:13px; color:#8A8275">구분</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px">
+              <div style="height:48px; border-radius:12px; border:2px solid #F5C542; background:#FFFCF0; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; color:#4A3603">알바</div>
+              <div style="height:48px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; justify-content:center; font-size:15px; color:#8A8275">직원</div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="font-size:13px; color:#8A8275">급여 관리 매장</div>
+            <div style="height:48px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:15px">별내 본점<span style="margin-left:auto; color:#A39A8A; font-size:12px">▾</span></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="font-size:13px; color:#8A8275">입사일</div>
+            <div style="height:48px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:15px; font-variant-numeric:tabular-nums">2026년 9월 18일</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="font-size:13px; color:#8A8275">시급</div>
+            <div style="height:48px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:16px; color:#A39A8A; font-variant-numeric:tabular-nums">비우면 최저시급 10,320원<span style="margin-left:auto; font-size:14px; color:#8A8275">원</span></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="font-size:13px; color:#8A8275">근무 가능 매장</div>
+            <div style="display:flex; gap:6px; align-items:center; height:48px">
+              <span style="height:34px; padding:0 13px; border-radius:999px; background:#FDF1CE; border:1px solid #EBD79A; color:#8A6109; font-size:13px; font-weight:600; display:flex; align-items:center">별내</span>
+              <span style="height:34px; padding:0 13px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">공릉</span>
+              <span style="height:34px; padding:0 13px; border-radius:999px; background:#FBF6EA; border:1px solid #E7DFCE; color:#6B6355; font-size:13px; display:flex; align-items:center">직진</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:9px; background:#EFF2F6; border-radius:12px; padding:13px 15px; font-size:14px; color:#455568; line-height:1.5">
+          <span style="width:18px; height:18px; border-radius:50%; border:2px solid #6B7A8F; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; box-sizing:border-box; flex:none; margin-top:1px">i</span>
+          <span style="text-wrap:pretty">수락하면 이 직원의 얼굴 등록도 함께 승인되고, 쌓인 근무 기록이 이 직원 것으로 옮겨져요.</span>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:flex-end">
+          <div style="height:48px; padding:0 22px; border-radius:13px; background:#FFFFFF; border:1.5px solid #E2D9C4; color:#4A4238; font-size:16px; font-weight:600; display:flex; align-items:center">취소</div>
+          <div style="height:48px; padding:0 26px; border-radius:13px; background:#F5C542; color:#4A3603; font-size:16px; font-weight:700; display:flex; align-items:center">수락하고 등록</div>
+        </div>
+      </div>
+
+      <div data-screen-label="A9 거절 확인" style="flex:none; width:440px; background:#FFFDF7; border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:16px; box-sizing:border-box; box-shadow:0 16px 40px rgba(46,42,36,0.18); border:1px solid #E7DFCE">
+        <div style="font-family:Jua,sans-serif; font-size:24px">요청을 거절할까요?</div>
+        <div style="font-size:16px; color:#6B6355; line-height:1.55; text-wrap:pretty">거절하면 쌓인 임시 근무 기록이 삭제되고, 폰에 저장된 이름과 얼굴 정보도 지워져요.</div>
+        <div style="display:flex; flex-direction:column; gap:6px">
+          <div style="font-size:13px; color:#8A8275">사유 (선택)</div>
+          <div style="height:48px; border-radius:12px; border:1.5px solid #E7DFCE; display:flex; align-items:center; padding:0 14px; font-size:15px; color:#A39A8A">예: 채용이 취소됨</div>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:flex-end">
+          <div style="height:48px; padding:0 22px; border-radius:13px; background:#FFFFFF; border:1.5px solid #E2D9C4; color:#4A4238; font-size:16px; font-weight:600; display:flex; align-items:center">취소</div>
+          <div style="height:48px; padding:0 28px; border-radius:13px; background:#E8674F; color:#FFFFFF; font-size:16px; font-weight:700; display:flex; align-items:center">거절</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}"></script>
+</body>
+</html>
