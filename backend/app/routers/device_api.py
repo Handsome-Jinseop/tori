@@ -66,6 +66,11 @@ async def get_device_config(device: dict = Depends(get_current_device)):
         {"work_store_ids": device["store_id"], "active": True}
     ).to_list(length=1000)
     enrollments = await db.face_enrollments.find({"device_id": device["_id"]}).to_list(length=1000)
+    # 이 기기에서 올라간 신규 직원 요청 중 처리된 것들. 폰은 temp_id 기준으로 멱등하게
+    # 반영한다 (이미 실제 employee_id로 바꾼 요청이 다시 와도 temp_id가 로컬에 없으면 무시).
+    resolved_requests = await db.employee_requests.find(
+        {"device_id": device["_id"], "status": {"$ne": "pending"}}
+    ).to_list(length=1000)
     return {
         "server_time": now_utc().isoformat().replace("+00:00", "Z"),
         "store": doc_out(store),
@@ -74,6 +79,15 @@ async def get_device_config(device: dict = Depends(get_current_device)):
         "allow_pre_approval_clock": settings["allow_pre_approval_clock"],
         "employees": [{"id": e["_id"], "name": e["name"]} for e in employees],
         "enrollments": docs_out(enrollments),
+        "resolved_employee_requests": [
+            {
+                "temp_id": r["temp_id"],
+                "status": r["status"],
+                "linked_employee_id": r.get("linked_employee_id"),
+                "reject_reason": r.get("reject_reason"),
+            }
+            for r in resolved_requests
+        ],
     }
 
 
